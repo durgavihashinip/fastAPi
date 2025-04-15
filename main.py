@@ -13,7 +13,7 @@ weather_codes = {
     51: 'Drizzle: Light',
     53: 'Drizzle: Moderate',
     55: 'Drizzle: Dense intensity',
-    61: 'Rain: Slight',
+    61: 'Rain: Slightly on the heavier side',
     63: 'Rain: Moderate',
     65: 'Rain: Heavy',
     80: 'Rain showers: Slight',
@@ -53,4 +53,5 @@ async def get_weather(latitude: float, longitude: float):
         raise HTTPException(status_code=500, detail=f"Failed to retrieve weather data: {str(error)}")
 
 
-#http://localhost:8000/weather/?latitude=48.8566&longitude=2.3522
+
+# http://localhost:8000/weather/?latitude=48.8566&longitude=2.3522

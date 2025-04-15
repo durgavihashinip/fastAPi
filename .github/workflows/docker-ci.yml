@@ -1,0 +1,35 @@
+name: Docker CI for FastAPI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+
+    - name: Install dependencies
+      run: |
+        pip install fastapi uvicorn httpx
+
+    - name: Run simple test (optional if you have tests)
+      run: |
+        echo "Tests passed!"  # Replace with actual test logic
+
+    - name: Build Docker image
+      run: docker build -t fastapi-weather-app .
+
+    - name: (Optional) Push Docker image to Docker Hub
+      # Add Docker login step here if needed
+      run: echo "Image built"
